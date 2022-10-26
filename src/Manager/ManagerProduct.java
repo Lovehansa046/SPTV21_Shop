@@ -17,15 +17,15 @@ public class ManagerProduct {
         System.out.print("Введите название продукта: ");
         product.setTitle(scanner.nextLine());
         System.out.print("Введите число покупателей: ");
-        int countPokupateliInProduct = scanner.nextInt();
+        int countBuyersInProduct = scanner.nextInt();
         scanner.nextLine();
-        product.setBuyers(createPokupateli(countPokupateliInProduct));
+        product.setBuyers(createPokupateli(countBuyersInProduct));
         return product;
     }
 
-    private Buyer[] createPokupateli(int countPokupateliInProduct) {
-        Buyer[] pokupateli = new Buyer[countPokupateliInProduct];
-        for (int i = 0; i < countPokupateliInProduct; i++) {
+    private Buyer[] createPokupateli(int countBuyersInProduct) {
+        Buyer[] pokupateli = new Buyer[countBuyersInProduct];
+        for (int i = 0; i < countBuyersInProduct; i++) {
             Buyer pokupatel = new Buyer();
             System.out.print("Имя покупателя "+(i+1)+": ");
             pokupatel.setFirstname(scanner.nextLine());
@@ -40,7 +40,7 @@ public class ManagerProduct {
         for (int i = 0; i < products.length; i++) {
             Product product = products[i];
             System.out.printf(i+1+". Product{title = %s%n",product.getTitle());
-            System.out.print("\tPokupateli = [\n");
+            System.out.print("\tПокупатели = [\n");
             for (int j = 0; j < product.getBuyers().length; j++) {
                 Buyer pokupatel = product.getBuyers()[j];
                 System.out.printf("\t\t%s %s%n"
