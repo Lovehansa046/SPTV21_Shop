@@ -3,8 +3,17 @@ package Entity;
 public class Buyer {
         private String firstname;
         private String lastname;
+    private int cash;
 
-        public Buyer() {
+    public int getCash() {
+        return cash;
+    }
+
+    public void setCash(int cash) {
+        this.cash = cash;
+    }
+
+    public Buyer() {
         }
 
         public Buyer(String firstname, String lastname) {
@@ -28,12 +37,12 @@ public class Buyer {
             this.lastname = lastname;
         }
 
-        @Override
-        public String toString() {
-            return "Pokupatel{"
-                    + "firstname=" + firstname
-                    + ", lastname=" + lastname
-                    + '}';
-        }
-
+    @Override
+    public String toString() {
+        return "Buyer{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", cash=" + cash +
+                '}';
     }
+}

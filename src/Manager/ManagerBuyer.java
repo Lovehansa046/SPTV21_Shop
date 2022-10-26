@@ -4,27 +4,23 @@ import Entity.Buyer;
 
 import java.util.Scanner;
 
-/**
- *
- * @author pupil
- */
 public class ManagerBuyer{
     private final Scanner scanner = new Scanner(System.in);
-    public Buyer createPokupatel(){
-        Buyer pokupatel = new Buyer();
+    public Buyer createBuyer(){
+        Buyer buyer = new Buyer();
         System.out.print("Имя: ");
-        pokupatel.setFirstname(scanner.nextLine());
+        buyer.setFirstname(scanner.nextLine());
         System.out.print("Фамилия: ");
-        pokupatel.setLastname(scanner.nextLine());
-        return pokupatel;
+        buyer.setLastname(scanner.nextLine());
+        return buyer;
     }
 
-    public void printListBuyers(Buyer[] pokupateli) {
-        for (int i = 0; i < pokupateli.length; i++) {
-            Buyer pokupatel = pokupateli[i];
-            System.out.printf(i+1+".%s %s %s%n"
-                    ,pokupatel.getFirstname()
-                    ,pokupatel.getLastname()
+    public void printListBuyers(Buyer[] buyers) {
+        for (int i = 0; i < buyers.length; i++) {
+            Buyer buyer = buyers[i];
+            System.out.printf(i+1+"%s %n"
+                    ,buyer.getFirstname()
+                    ,buyer.getLastname()
             );
         }
     }

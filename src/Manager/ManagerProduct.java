@@ -12,43 +12,41 @@ public class ManagerProduct {
         this.scanner = new Scanner(System.in);
     }
 
-    public Product createProduct(){
+    public Product addproduct() {
         Product product = new Product();
-        System.out.print("Введите название продукта: ");
-        product.setTitle(scanner.nextLine());
-        System.out.print("Введите число покупателей: ");
-        int countBuyersInProduct = scanner.nextInt();
+        System.out.println("Введите название продукта");
+        product.setProductName(scanner.nextLine());
+        System.out.println("Введите цену продукта (целыми числами)");
+        product.setPrice(scanner.nextInt());
         scanner.nextLine();
-        product.setBuyers(createPokupateli(countBuyersInProduct));
+        System.out.println("Количество товара");
+        product.setPrice(scanner.nextInt());
+        scanner.nextLine();
         return product;
     }
 
-    private Buyer[] createPokupateli(int countBuyersInProduct) {
-        Buyer[] pokupateli = new Buyer[countBuyersInProduct];
-        for (int i = 0; i < countBuyersInProduct; i++) {
-            Buyer pokupatel = new Buyer();
-            System.out.print("Имя покупателя "+(i+1)+": ");
-            pokupatel.setFirstname(scanner.nextLine());
-            System.out.print("Фамилия покупателя "+(i+1)+": ");
-            pokupatel.setLastname(scanner.nextLine());
-            pokupateli[i] = pokupatel;
-        }
-        return pokupateli;
-    }
+//    private Buyer[] createBuyer(int countBuyersInProduct) {
+//        Buyer[] buyers = new Buyer[countBuyersInProduct];
+//        for (int i = 0; i < countBuyersInProduct; i++) {
+//            Buyer buyer = new Buyer();
+//            System.out.print("Имя покупателя "+(i+1)+": ");
+//            buyer.setFirstname(scanner.nextLine());
+//            System.out.print("Фамилия покупателя "+(i+1)+": ");
+//            buyer.setLastname(scanner.nextLine());
+//            buyers[i] = buyer;
+//        }
+//        return buyers;
+//    }
 
     public void printListProducts(Product[] products){
+        System.out.println("Продукты: ");
         for (int i = 0; i < products.length; i++) {
             Product product = products[i];
-            System.out.printf(i+1+". Product{title = %s%n",product.getTitle());
-            System.out.print("\tПокупатели = [\n");
-            for (int j = 0; j < product.getBuyers().length; j++) {
-                Buyer pokupatel = product.getBuyers()[j];
-                System.out.printf("\t\t%s %s%n"
-                        ,pokupatel.getFirstname(),pokupatel.getLastname());
-            }
-            System.out.println("\t]");
+            System.out.printf(i+1+". "+
+                    "%s"
+                    ,product.getProductName());
         }
-        System.out.println("   }");
+        System.out.println();
     }
 
 }
