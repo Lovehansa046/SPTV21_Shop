@@ -25,18 +25,18 @@ public class App {
 
     }
 
-    public void run() throws ParseException{
+    public void run() {
         boolean repeat = true;
         Scanner scanner = new Scanner(System.in);
         do{
             System.out.println("Список задач: ");
             System.out.println("0. Выход из программы");
-            System.out.println("2. добавить продукт");
-            System.out.println("3. добавить покупателя");
-            System.out.println("4. Список продуктов");
-            System.out.println("5. список покупателей");
-            System.out.println("6. Покупка продукта");
-            System.out.println("7. добавление денег покупателю");
+            System.out.println("1. добавить продукт");
+            System.out.println("2. добавить покупателя");
+            System.out.println("3. Список продуктов");
+            System.out.println("4. список покупателей");
+            System.out.println("5. Покупка продукта");
+            System.out.println("6. добавление денег покупателю");
             int task = scanner.nextInt();
             scanner.nextLine();
             System.out.println("=====================================");
@@ -45,41 +45,43 @@ public class App {
                     repeat = false;
                     System.out.println("0. Выход из программы");
                     break;
-                case 2:
-                    System.out.println("2. добавить продукт");
+                case 1:
+                    System.out.println("1. добавить продукт");
                     this.products = Arrays.copyOf(this.products, this.products.length+1);
                     this.products[this.products.length-1] = managerProduct.addproduct();
                     break;
-                case 4:
-                    System.out.println("4. Список продуктов");
-                    managerProduct.printListProducts(products);
-                    break;
-                case 3:
-                    System.out.println("3. добавить покупателя");
+                case 2:
+                    System.out.println("2. добавить покупателя");
                     this.buyers =  Arrays.copyOf(this.buyers, this.buyers.length+1);
                     this.buyers[this.buyers.length-1] = managerBuyer.createBuyer();
-                case 5:
-                    System.out.println("5. список покупателей");
+                    break;
+                case 3:
+                    System.out.println("3. Список продуктов");
+                    managerProduct.printListProducts(products);
+                case 4:
+                    System.out.println("4. список покупателей");
                     System.out.println("список покупателей");
                     managerBuyer.printListBuyers(buyers);
                     break;
-                case 6:
-                    System.out.println("6. Покупка продукта");
+                case 5:
+                    System.out.println("5. Покупка продукта");
                     System.out.println(" Список покупателей: ");
                     managerBuyer.printListBuyers(buyers);
-                    int buy1 = scanner.nextInt();
+                    int buyer = scanner.nextInt(); scanner.nextLine();
                     System.out.println(" Список продуктов: ");
                     for(int j = 0; j< products.length; j++){
-                        System.out.println(j+1);
+                        managerProduct.printListProducts(products);
                     }
-                    int buy2 = scanner.nextInt();
-                    int pur = buyers[buy1-1].getCash() - products[buy2-1].getPrice();
-                    buyers[buy1-1].setCash(pur);
+                    int product = scanner.nextInt(); scanner.nextLine();
+                    System.out.println("Кол-во товара: ");
+                    int Quality = scanner.nextInt(); scanner.nextLine();
+                    int pur = (buyers[buyer-1].getCash()) - (products[product-1].getPrice());
+                    buyers[buyer-1].setCash(pur);
                     System.out.println("Остаток на счету"+pur);
 
                     break;
-                case 7:
-                    System.out.println("7. добавление денег покупателю");
+                case 6:
+                    System.out.println("6. добавление денег покупателю");
                     System.out.println("Выберите покупателя для зачисления на его счет денежных средств");
                     System.out.println("список покупателей");
                     managerBuyer.printListBuyers(buyers);

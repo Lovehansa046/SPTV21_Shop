@@ -5,14 +5,14 @@ import java.util.Arrays;
 public class Product {
     private String productName;
     private Buyer[] buyers;
-    private String quantity;
+    private int quantity;
     private int price;
 
-    public String getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
